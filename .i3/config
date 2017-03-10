@@ -197,3 +197,8 @@ exec_always /home/dmitry/.i3/toggle_touchpad.py --load
 
 # wallpaper
 exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/landmark-bridge-cliff-california.jpeg
+
+# screenshot
+bindsym Print exec scrot ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
+bindsym mod1+Print exec scrot --focused ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
+bindsym --release shift+Print exec scrot --select ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
