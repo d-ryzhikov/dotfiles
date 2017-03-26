@@ -179,6 +179,9 @@ bindsym $mod+control+Left workspace prev
 # Touchpad on/off
 bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
 
+# Touchpad enable taps
+exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
+
 # volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+ # increase
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%- # decrease
