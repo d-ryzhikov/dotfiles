@@ -1,0 +1,19 @@
+URxvt.scrollstyle: xterm
+
+
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel: 1
+
+URxvt.font: xft:Andale Mono-10
+
+URxvt*background: black
+URxvt*foreground: white
+
+! colors
+! blue
+URxvt*color4: #000080
+URxvt*color12: #0f42fc
