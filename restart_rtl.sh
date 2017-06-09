@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-
-sudo rmmod rtl8821ae
+sudo modprobe -r rtl8821ae
 sudo modprobe rtl8821ae
