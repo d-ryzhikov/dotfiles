@@ -15,5 +15,5 @@ URxvt*foreground: white
 
 ! colors
 ! blue
-URxvt*color4: #000080
-URxvt*color12: #0f42fc
+URxvt*color4: #0a37b2
+URxvt*color12: #0f65fc
