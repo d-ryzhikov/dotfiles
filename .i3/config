@@ -201,6 +201,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # calc key
 bindsym XF86Calculator exec gnome-calculator
 
+# set keyboard layout
+exec --no-startup-id "setxkbmap us,ru"
+
 # load last saved touchpad status
 exec_always /home/dmitry/.i3/toggle_touchpad.py --load
 
