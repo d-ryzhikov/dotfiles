@@ -199,7 +199,7 @@ bindsym XF86Calculator exec gnome-calculator
 exec_always /home/dmitry/.i3/toggle_touchpad.py --load
 
 # wallpaper
-exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/palms.png
+exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
 
 # screenshot
 bindsym Print exec escrotum ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
