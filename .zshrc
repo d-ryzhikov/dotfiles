@@ -93,6 +93,7 @@ __git_files () {
     _wanted files expl 'local files' _files     
 }
 
-SAVEHIST=10
+SAVEHIST=100000
+HISTSIZE=100000
 HISTFILE=~/.zsh_history
 
