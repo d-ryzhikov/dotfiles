@@ -1,2 +1,2 @@
 #!/bin/sh
-i3lock -i /home/dmitry/Pictures/wallpapers/palms.png
+i3lock -i /home/dmitry/Pictures/wallpapers/wallpaper.png
