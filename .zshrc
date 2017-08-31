@@ -88,6 +88,9 @@ source $ZSH/oh-my-zsh.sh
 bindkey "^[Oc" forward-word
 bindkey "^[Od" backward-word
 
+# kill from the beginning of the line to the cursor position
+bindkey "^U" backward-kill-line
+
 # fix git unresponsiveness
 __git_files () { 
     _wanted files expl 'local files' _files     
