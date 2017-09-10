@@ -205,9 +205,9 @@ exec_always /home/dmitry/.i3/toggle_touchpad.py --load
 exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
 
 # screenshot
-bindsym Print exec escrotum ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
-bindsym mod1+Print exec escrotum -x $(xdotool getwindowfocus) ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
-bindsym --release shift+Print exec escrotum --select ~/screen_shot.png && xclip -selection clipboard -t image/png -i ~/screen_shot.png && rm ~/screen_shot.png
+bindsym Print exec escrotum /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
+bindsym Mod1+Sys_Req exec escrotum -x $(xdotool getwindowfocus) /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
+bindsym --release shift+Print exec escrotum --select /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
 
 # dunst
 exec --no-startup-id dunst
