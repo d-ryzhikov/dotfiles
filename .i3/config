@@ -176,8 +176,11 @@ bar {
 bindsym $mod+Shift+x exec /home/dmitry/.i3/lock-screen.sh
 
 # switch next/prev workspace
-bindsym $mod+control+Right workspace next
 bindsym $mod+control+Left workspace prev
+bindsym $mod+control+Right workspace next
+# vim-like workspace change
+bindsym $mod+control+j workspace prev
+bindsym $mod+control+semicolon workspace next
 
 # Touchpad on/off
 bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
