@@ -21,7 +21,7 @@ filetype on
 " Vim-airline settings
 "==============================================================================
 set laststatus=2
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -41,9 +41,11 @@ let g:airline#extensions#tabline#right_alt_sep = '|'
 " General settings
 "==============================================================================
 let g:mapleader = ","
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 set background=dark
-colorscheme bubblegum-256-dark
+colorscheme afterglow
+"colorscheme bubblegum-256-dark
 "colorscheme atom-dark-256
 "colorscheme breezy
 
