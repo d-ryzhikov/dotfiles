@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # window title bar
-new_window normal
+new_window pixel 2
 
 # window colors
 #              border  backgr. text    indicator child_border
@@ -35,7 +35,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite -d "`xcwd`"
+# bindsym $mod+Return exec termite -d "`xcwd`"
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -198,8 +199,8 @@ bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
 exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
 
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+ # increase
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%- # decrease
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 2%+ # increase
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 2%- # decrease
 bindsym XF86AudioMute exec --no-startup-id amixer set 'Master' toggle # mute/unmute
 
 # multimedia keys
@@ -222,4 +223,4 @@ bindsym Mod1+Sys_Req exec escrotum -x $(xdotool getwindowfocus) /tmp/screen_shot
 bindsym --release shift+Print exec escrotum --select /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
 
 # dunst
-exec --no-startup-id dunst
+# exec --no-startup-id dunst

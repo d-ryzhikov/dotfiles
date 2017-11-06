@@ -1,11 +1,10 @@
 [options]
-font = Roboto Mono for Powerline 10
+font = Cousine for Powerline 10
 
 [colors]
 # special
 foreground      = #ffffff
 foreground_bold = #ffffff
-cursor          = #ffffff
 background      = #000000
 
 # black
