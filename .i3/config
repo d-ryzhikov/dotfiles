@@ -189,14 +189,14 @@ bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
 exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
 
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+ # increase
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%- # decrease
-bindsym XF86AudioMute exec --no-startup-id amixer set 'Master' toggle # mute/unmute
+bindsym $mod+Prior exec --no-startup-id amixer set 'Master' 5%+ # increase
+bindsym $mod+Next exec --no-startup-id amixer set 'Master' 5%- # decrease
+bindsym $mod+Delete exec --no-startup-id amixer set 'Master' 1+ toggle # mute/unmute
 
 # multimedia keys
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+Insert exec playerctl play-pause
+bindsym $mod+Home exec playerctl previous
+bindsym $mod+End exec playerctl next
 
 # calc key
 bindsym XF86Calculator exec gnome-calculator
@@ -228,5 +228,5 @@ exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.i3/workspaces/worksp
 exec --no-startup-id google-chrome
 exec --no-startup-id pycharm
 exec --no-startup-id urxvt
-exec --no-startup-id skypeforlinux
+exec --no-startup-id skype
 exec --no-startup-id firefox

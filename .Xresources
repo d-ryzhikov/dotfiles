@@ -8,7 +8,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
 
-URxvt.font: xft:Andale Mono-10
+URxvt.font: xft:Roboto Mono for Powerline-10
 
 URxvt*background: black
 URxvt*foreground: white
