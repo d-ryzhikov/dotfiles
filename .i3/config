@@ -183,7 +183,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #}
 
 # lock screen
-bindsym $mod+Shift+x exec /home/dmitry/.i3/lock-screen.sh
+bindsym $mod+Shift+x exec dm-tool lock
 
 # switch next/prev workspace
 bindsym $mod+control+Left workspace prev
@@ -201,7 +201,7 @@ exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
 # volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 2%+ # increase
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 2%- # decrease
-bindsym XF86AudioMute exec --no-startup-id amixer set 'Master' toggle # mute/unmute
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle # mute/unmute
 
 # multimedia keys
 bindsym XF86AudioPlay exec playerctl play-pause
