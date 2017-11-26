@@ -45,18 +45,19 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = "Source Code Pro for Powerline:style=Regular:size=10"
-font-1 = "FontAwesome:size=10;-1"
+font-0 = "Source Code Pro for Powerline:style=Regular:size=9;-1"
+font-1 = "FontAwesome:size=9;-2"
 font-2 = fixed:pixelsize=10
 font-3 = "FontAwesome:size=10"
-font-4 = Siji:pixelsize=10
-font-5 = "Source Code Pro for Powerline":style=Regular:size=7;-2
+font-4 = "Siji:pixelsize=10"
+font-5 = "Source Code Pro for Powerline:style=Regular:size=10"
+font-6 = "Source Code Pro for Powerline":style=Regular:size=8;-2
 
-font = "Source Code Pro for Powerline":style=Regular:size=9
+font = "Source Code Pro for Powerline:style=Regular:size=9"
 
 modules-left = i3 xwindow
-modules-center = date
-modules-right = volume xkeyboard wlan eth battery powermenu
+modules-center =
+modules-right = volume temperature cpu memory wlan eth xkeyboard battery date
 
 tray-position = right
 tray-padding = 2
@@ -168,7 +169,7 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-label-mode-padding = 2
+label-more-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -176,18 +177,22 @@ label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-font = 6
 
 label-unfocused = %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-font = 6
 
 label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-font = 6
 
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
+label-visible-font = 6
 
 [module/mpd]
 type = internal/mpd
@@ -241,6 +246,7 @@ format-prefix-foreground = ${self.format-underline}
 ;format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #666ccc
 label = %percentage%%
+label-font = 6
 
 [module/memory]
 type = internal/memory
@@ -262,27 +268,19 @@ format-connected-underline = #58ff5e
 format-connected-prefix-foreground = ${self.format-connected-underline}
 format-disconnected-underline = ${colors.alert}
 
-label-connected = %essid%
+label-connected = %essid%:  %upspeed%  %downspeed%
 label-disconnected =
-label-disconnected-foreground = ${colors.foreground-alt}
-
-;ramp-signal-0 = 
-;ramp-signal-1 = 
-;ramp-signal-2 = 
-;ramp-signal-3 = 
-;ramp-signal-4 = 
-;ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
 interface = enp0s25
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${module/wlan.format-connected-underline}
 
 format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+format-connected-foreground-foreground = ${module.wlan/}
+label-connected = %local_ip%:  %upspeed%  %downspeed%
 
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected =
@@ -292,13 +290,16 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 5
 
-date = "%Y-%m-%d"
-date-alt = "%A, %d %B %Y"
+#date = "%Y-%m-%d"
+#date-alt = "%A, %d %B %Y"
+date = ""
+date-alt =  %Y-%m-%d
 
-time = %H:%M
-time-alt = %H:%M
+time =  %H:%M
+time-alt =  %H:%M
 
-label =  %time%  %date%
+label = %time% %date%
+label-font = 6
 
 [module/volume]
 type = internal/volume
@@ -308,11 +309,15 @@ speaker-soundcard = default
 headphone-soundcard = default
 
 format-volume = <label-volume> <bar-volume>
-label-volume = " "
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
+label-muted =  muted
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = " muted"
+
+ramp-volume-foreground = #55aa55
+ramp-volume-0 = 
+ramp-volume-1 = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -327,7 +332,7 @@ bar-volume-foreground-8 = #ff5555
 bar-volume-foreground-9 = #ff5555
 bar-volume-gradient = true
 bar-volume-indicator = ⬤
-bar-volume-indicator-font = 6
+bar-volume-indicator-font = 7
 bar-volume-indicator-foreground = #ff
 bar-volume-fill = ━
 bar-volume-fill-font = 0
@@ -377,13 +382,15 @@ format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
+label-font = 6
 label-warn = %temperature%
+label-warn-font = 6
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-0-foreground = ${self.format-underline}
+ramp-0-foreground = #28c3fc
 ramp-1-foreground = ${self.format-underline}
 ramp-2-foreground = ${colors.secondary}
 ;ramp-foreground = ${colors.foreground-alt}

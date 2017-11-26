@@ -35,8 +35,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec termite -d "`xcwd`"
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec termite -d "`xcwd`"
+# bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,10 +53,10 @@ bindsym $mod+d exec rofi -show run
 focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -65,10 +65,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -77,10 +77,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -142,7 +142,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.i3/shutdown_menu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -152,10 +152,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -173,14 +173,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#bar {
-#        status_command i3blocks -c ~/.i3/i3blocks.conf
-#        colors {
-#          background #0e1014
-#          separator #757575
-#        }
-#        position bottom
-#}
+# bar {
+#         status_command i3blocks -c ~/.i3/i3blocks.conf
+#         colors {
+#           background #0e1014
+#           separator #757575
+#         }
+#         position bottom
+# }
+exec_always --no-startup-id compton
 
 # lock screen
 bindsym $mod+Shift+x exec dm-tool lock
@@ -189,8 +190,8 @@ bindsym $mod+Shift+x exec dm-tool lock
 bindsym $mod+control+Left workspace prev
 bindsym $mod+control+Right workspace next
 # vim-like workspace change
-bindsym $mod+control+j workspace prev
-bindsym $mod+control+semicolon workspace next
+bindsym $mod+control+h workspace prev
+bindsym $mod+control+l workspace next
 
 # Touchpad on/off
 bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
@@ -222,5 +223,6 @@ bindsym Print exec escrotum /tmp/screen_shot.png && xclip -selection clipboard -
 bindsym Mod1+Sys_Req exec escrotum -x $(xdotool getwindowfocus) /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
 bindsym --release shift+Print exec escrotum --select /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
 
-# dunst
-# exec --no-startup-id dunst
+# lightdm lock screen
+# exec --no-startup-id light-locker --lock-on-suspend --lock-on-lid
+
