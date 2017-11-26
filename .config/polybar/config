@@ -41,8 +41,8 @@ border-bottom-size = 2
 border-bottom-color = #333
 
 padding-left = 0
-padding-right = 2
-module-margin-left = 2
+padding-right = 0
+module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "Source Code Pro for Powerline:style=Regular:size=9;-1"
@@ -51,13 +51,13 @@ font-2 = fixed:pixelsize=10
 font-3 = "FontAwesome:size=10"
 font-4 = "Siji:pixelsize=10"
 font-5 = "Source Code Pro for Powerline:style=Regular:size=10"
-font-6 = "Source Code Pro for Powerline":style=Regular:size=8;-2
+font-6 = "Source Code Pro for Powerline":style=Regular:size=6;-4
 
 font = "Source Code Pro for Powerline:style=Regular:size=9"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = volume temperature cpu memory wlan eth xkeyboard battery date
+modules-right = volume temperature cpu memory filesystem xkeyboard battery date
 
 tray-position = right
 tray-padding = 2
@@ -115,6 +115,7 @@ scroll-down = i3wm-wsprev
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+label-font = 6
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -136,9 +137,9 @@ interval = 25
 
 mount-0 = /
 
-label-mounted =  %mountpoint%: %free%
-label-mounted-foreground = #999
-label-mounted-underline = #999
+label-mounted =  %free%
+label-mounted-foreground = #fff
+label-mounted-underline = #fff
 
 label-unmounted = %mountpoint%: not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -244,9 +245,8 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${self.format-underline}
 ;format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #666ccc
+format-underline = #6699CC
 label = %percentage%%
-label-font = 6
 
 [module/memory]
 type = internal/memory
@@ -254,7 +254,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${self.format-underline}
 ;format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = #29d14b
 label = %gb_used% / %gb_total%
 
 [module/wlan]
@@ -268,7 +268,7 @@ format-connected-underline = #58ff5e
 format-connected-prefix-foreground = ${self.format-connected-underline}
 format-disconnected-underline = ${colors.alert}
 
-label-connected = %essid%:  %upspeed%  %downspeed%
+label-connected = %essid%
 label-disconnected =
 
 [module/eth]
@@ -280,7 +280,7 @@ format-connected-underline = ${module/wlan.format-connected-underline}
 
 format-connected-prefix = " "
 format-connected-foreground-foreground = ${module.wlan/}
-label-connected = %local_ip%:  %upspeed%  %downspeed%
+label-connected = %local_ip%
 
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected =
@@ -374,7 +374,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 70
 
 format = <ramp> <label>
 format-underline = #fffb14
@@ -382,9 +382,7 @@ format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
-label-font = 6
 label-warn = %temperature%
-label-warn-font = 6
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
