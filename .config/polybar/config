@@ -45,13 +45,13 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Source Code Pro for Powerline:style=Regular:size=9;-1"
-font-1 = "FontAwesome:size=9;-2"
-font-2 = fixed:pixelsize=10
+font-0 = "Source Code Pro for Powerline:style=Regular:size=9;2"
+font-1 = "FontAwesome:size=9;2"
+font-2 = "fixed:pixelsize=10"
 font-3 = "FontAwesome:size=10"
 font-4 = "Siji:pixelsize=10"
-font-5 = "Source Code Pro for Powerline:style=Regular:size=10"
-font-6 = "Source Code Pro for Powerline":style=Regular:size=6;-4
+font-5 = "Source Code Pro for Powerline:style=Regular:size=10;2"
+font-6 = "Source Code Pro for Powerline:style=Regular:size=6;-2"
 
 font = "Source Code Pro for Powerline:style=Regular:size=9"
 
@@ -331,8 +331,8 @@ bar-volume-foreground-7 = #f5a70a
 bar-volume-foreground-8 = #ff5555
 bar-volume-foreground-9 = #ff5555
 bar-volume-gradient = true
-bar-volume-indicator = ⬤
-bar-volume-indicator-font = 7
+bar-volume-indicator = "|"
+bar-volume-indicator-font = 2
 bar-volume-indicator-foreground = #ff
 bar-volume-fill = ━
 bar-volume-fill-font = 0
