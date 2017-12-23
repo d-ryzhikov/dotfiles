@@ -9,6 +9,13 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -51,7 +58,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pyenv)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,20 +92,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Ctrl+left/Ctrl+right word jump
-bindkey "^[Oc" forward-word
-bindkey "^[Od" backward-word
-
-# kill from the beginning of the line to the cursor position
-bindkey "^U" backward-kill-line
-
-# fix git unresponsiveness
-__git_files () { 
-    _wanted files expl 'local files' _files     
-}
-
-SAVEHIST=100000
-HISTSIZE=100000
-HISTFILE=~/.zsh_history
-
+bindkey \^U backward-kill-line
