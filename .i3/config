@@ -204,7 +204,7 @@ exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
 # volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 2%+ # increase
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 2%- # decrease
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle # mute/unmute
+bindsym XF86AudioMute exec --no-startup-id amixer set Master 1+ toggle # mute/unmute
 
 # multimedia keys
 bindsym XF86AudioPlay exec playerctl play-pause
