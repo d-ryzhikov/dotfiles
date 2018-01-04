@@ -23,24 +23,6 @@
                }
             ],
             "type": "con"
-        },
-        {
-            "border": "normal",
-            "current_border_width": 2,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 1041,
-               "width": 1916,
-               "x": 2,
-               "y": 18
-            },
-            "percent": 0.5,
-            "swallows": [
-               {
-               "class": "^Skype$"
-               }
-            ],
-            "type": "con"
         }
     ]
 }
