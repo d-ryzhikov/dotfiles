@@ -23,6 +23,25 @@
                }
             ],
             "type": "con"
+        },
+        {
+            // splith split container with 1 children
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1000,
+               "width": 928,
+               "x": 0,
+               "y": 0
+            },
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Skype$"
+               }
+            ],
+            "type": "con"
         }
     ]
 }
