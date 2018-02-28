@@ -93,6 +93,12 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+Tab focus child
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 set $workspace1 "1"
 set $workspace2 "2"
 set $workspace3 "3"
@@ -173,7 +179,7 @@ bar {
 }
 
 # lock screen
-bindsym $mod+Shift+x exec /home/dmitry/.i3/lock-screen.sh
+bindsym $mod+Shift+x exec /home/dzmitry/.i3/lock-screen.sh
 
 # switch next/prev workspace
 bindsym $mod+control+Left workspace prev
@@ -183,7 +189,7 @@ bindsym $mod+control+j workspace prev
 bindsym $mod+control+semicolon workspace next
 
 # Touchpad on/off
-bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
+# bindsym XF86TouchpadToggle exec /home/dmitry/.i3/toggle_touchpad.py
 
 # Touchpad enable taps
 exec_always synclient TapButton1=1 TapButton2=3 TapButton3=2
@@ -205,10 +211,10 @@ bindsym XF86Calculator exec gnome-calculator
 exec --no-startup-id setxkbmap -layout us,ru exec -option grp:alt_shift_toggle
 
 # load last saved touchpad status
-exec_always /home/dmitry/.i3/toggle_touchpad.py --load
+# exec_always /home/dmitry/.i3/toggle_touchpad.py --load
 
 # wallpaper
-exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
+# exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
 
 # screenshot
 bindsym Print exec escrotum /tmp/screen_shot.png && xclip -selection clipboard -t image/png -i /tmp/screen_shot.png && rm /tmp/screen_shot.png
@@ -228,5 +234,5 @@ exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.i3/workspaces/worksp
 exec --no-startup-id google-chrome
 exec --no-startup-id pycharm
 exec --no-startup-id urxvt
-exec --no-startup-id skype
+exec --no-startup-id skypeforlinux
 exec --no-startup-id firefox
