@@ -184,7 +184,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
 # lock screen
-bindsym $mod+Shift+x exec dm-tool lock
+bindsym $mod+Shift+x exec lock-screen
 
 # switch next/prev workspace
 bindsym $mod+control+Left workspace prev
