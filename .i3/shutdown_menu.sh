@@ -27,7 +27,7 @@
 #######################################################################
 
 # Use a custom lock script
-#LOCKSCRIPT="i3lock-extra -m pixelize"
+LOCKSCRIPT="/home/dmitry/.i3/lock-screen.sh"
 
 # Colors: FG (foreground), BG (background), HL (highlighted)
 FG_COLOR="#bbbbbb"
@@ -38,7 +38,7 @@ BORDER_COLOR="#222222"
 
 # Options not related to colors
 ROFI_TEXT="Menu:"
-ROFI_OPTIONS=(-width -11 -location 3 -hide-scrollbar -bw 2)
+ROFI_OPTIONS=(-width -13 -location 3 -hide-scrollbar -bw 2)
 
 # Zenity options
 ZENITY_TITLE="Menu"
@@ -117,7 +117,7 @@ menu=(
   [Reboot]="systemctl reboot"
   [Hibernate]="systemctl hibernate"
   [Suspend]="systemctl suspend"
-  [Halt]="systemctl halt"
+  [Hybrid-sleep]="systemctl hybrid-sleep"
   [Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
   [Logout]="i3-msg exit"
   [Cancel]=""
