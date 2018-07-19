@@ -4,19 +4,31 @@ filetype off                    "required
 " Vundle settings
 "==============================================================================
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/bundle')
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'shougo/deoplete.nvim'
+Plug 'zchee/deoplete-jedi'
+Plug 'lambdalisue/vim-pyenv', {
+        \ 'depends': ['davidhalter/jedi-vim'],
+        \ 'autoload': {
+        \   'filetypes': ['python', 'python3'],
+        \ }}
+Plug 'neomake/neomake'
+Plug 'jiangmiao/auto-pairs'
 
-call vundle#end()
+call plug#end()
 filetype on
+"==============================================================================
+" General settings
+"==============================================================================
+let g:mapleader = ","
 "==============================================================================
 " Vim-airline settings
 "==============================================================================
@@ -30,17 +42,16 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = '|'
 "==============================================================================
-" YouCompleteMe settings
+" Deoplete settings
 "==============================================================================
-"let g:ycm_python_binary_path = '/usr/bin/python'
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-"let g:ycm_add_preview_to_completeopt = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_seed_identifiers_with_syntax = 1
+let g:deoplete#enable_at_startup = 1
 "==============================================================================
-" General settings
+" NERDTree settings
 "==============================================================================
-let g:mapleader = ","
+" Leader+n to toggle NERDTree
+map <Leader>n :NERDTreeToggle<CR>
+" close vim if NERDTree is the last open buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set background=dark
 colorscheme bubblegum-256-dark
