@@ -21,14 +21,13 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/top]
-monitor = LVDS1
+monitor = LVDS-1
 width = 100%
 height = 21
 offset-x = 0
 offset-y = 0
 bottom = false
 
-;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -61,55 +60,11 @@ modules-right = volume temperature cpu memory filesystem xkeyboard battery date
 
 tray-position = right
 tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
 
-;wm-restack = bspwm
 wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
-
-;[bar/bottom]
-;bottom = true
-;width = 100%
-;height = 21
-;offset-x = 0
-;offset-y = 0
-;
-;;background = ${xrdb:color9}
-;background = ${colors.background}
-;foreground = ${colors.foreground}
-;
-;overline-size = 2
-;overline-color = #f00
-;underline-size = 2
-;underline-color = #00f
-;
-;border-top-size = 2
-;border-top-color = #333
-;
-;padding-left = 0
-;padding-right = 2
-;module-margin-left = 2
-;module-margin-right = 1
-;
-;font-0 = "Source Code Pro for Powerline:style=Regular:size=10"
-;font-1 = "FontAwesome:size=10;-1"
-;font-2 = fixed:pixelsize=10
-;font-3 = "FontAwesome:size=10"
-;font-4 = Siji:pixelsize=10
-;font-5 = "Source Code Pro for Powerline":style=Regular:size=8;-2
-;
-;modules-left = 
-;modules-center = volume mpd
-;modules-right = cpu temperature memory filesystem
 
 
 [module/xwindow]
@@ -245,7 +200,6 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${self.format-underline}
-;format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #6699CC
 label = %percentage%%
 
@@ -291,9 +245,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 5
 
-#date = "%Y-%m-%d"
-#date-alt = "%A, %d %B %Y"
-date = ""
+date =
 date-alt =  %Y-%m-%d
 
 time =  %H:%M
@@ -392,7 +344,6 @@ ramp-2 = 
 ramp-0-foreground = #28c3fc
 ramp-1-foreground = ${self.format-underline}
 ramp-2-foreground = ${colors.secondary}
-;ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
