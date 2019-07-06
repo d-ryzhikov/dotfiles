@@ -1,22 +1,27 @@
 set nocompatible                "be iMproved, required
 filetype off                    "required
 "==============================================================================
-" Vundle settings
+" vim plug settings
 "==============================================================================
-" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/bundle')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
+
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'lambdalisue/gina.vim'
+
+" navigation
+Plug 'liuchengxu/vista.vim'
 
 " syntax
 Plug 'sheerun/vim-polyglot'
+Plug 'exu/pgsql.vim'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -36,33 +41,42 @@ Plug 'alvan/vim-closetag'
 " c/c++
 Plug 'tweekmonster/deoplete-clang2'
 
+" clojure
+" TODO: cider-jackin and deoplete completion
+Plug 'clojure-vim/async-clj-omni'
+
+" terraform
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+
 Plug 'w0rp/ale'
 
 " navigation
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
+
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 filetype on
 
 "==============================================================================
-" Vim-airline settings
+" lightline settings
 "==============================================================================
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_theme='deus'
-let g:airline#extensions#tabline#enabled = 1
-
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:lightline = {}
+let g:lightline.colorscheme = "one"
+let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type = {'buffers': 'tabsel'}
+set showtabline=2
 
 "==============================================================================
 " deoplete settings
 "==============================================================================
-let g:python_host_prog = '/home/dmitry/.pyenv/shims/python2'
-let g:python3_host_prog = '/home/dmitry/.pyenv/shims/python3'
+let g:python_host_prog = '/home/dmitry/.pyenv/versions/2.7/bin/python'
+let g:python3_host_prog = '/home/dmitry/.pyenv/versions/3.6.8/bin/python'
 
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 100
 let g:deoplete#auto_refresh_delay = 30
@@ -87,6 +101,12 @@ let g:deoplete#sources#ternjs#in_literal = 0
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
+" terraform
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+let g:deoplete#enable_at_startup = 1
+call deoplete#initialize()
+
 "==============================================================================
 " ale settings
 "==============================================================================
@@ -106,19 +126,42 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "==============================================================================
-" Tagbar settings
+" vista settings
 "==============================================================================
-nnoremap <Leader>t :TagbarToggle<CR>
+nnoremap <Leader>t :Vista!!<CR>
 
 "==============================================================================
-" Tagbar settings
+" closetag settings
 "==============================================================================
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tpl'
+
+"==============================================================================
+" terraform settings
+"==============================================================================
+let g:terraform_align = 1
+let g:terraform_fold_sections = 1
+let g:terraform_fmt_on_save = 1
+"==============================================================================
+" easy-align settings
+"==============================================================================
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 "==============================================================================
 " general settings
 "==============================================================================
 set background=dark
+syntax on
 colorscheme afterglow
+
+" gitgutter colors
+highlight clear SignColumn
+highlight GitGutterAdd          ctermfg=green
+highlight GitGutterChange       ctermfg=yellow
+highlight GitGutterDelete       ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
 
 set colorcolumn=80
 set cursorline
@@ -154,10 +197,10 @@ hi SpecialKey ctermfg=7 guifg=gray
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-syntax on
-
 set mouse=a
 set nowrap
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+set grepprg=grep\ -n\ $*
