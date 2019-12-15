@@ -1,5 +1,6 @@
 [options]
 font = Cousine for Powerline 10
+scrollback_lines = 10000
 
 [colors]
 # special
