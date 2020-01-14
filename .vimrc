@@ -36,6 +36,9 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
+" java
+Plug 'artur-shaik/vim-javacomplete2'
+
 " ts
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'for': 'typescript' }
@@ -65,7 +68,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'w0rp/ale'
 
 " navigation
-"Plug 'ludovicchabant/vim-gutentags' motherfucking piece of shit doesn't work
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 
@@ -192,6 +195,7 @@ let g:ag_prg="ag --nogroup --column"
 "==============================================================================
 let g:gutentags_ctags_tagfile="./.git/tags"
 let g:gutentags_exclude_project_root = ["/usr/local", "/home/dmitry"]
+let g:gutentags_ctags_exclude = [".tox", "node_modules"]
 set tags=./.git/tags;
 set notagrelative
 
@@ -199,7 +203,7 @@ set notagrelative
 " ctrlp tag settings
 "==============================================================================
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = 'node_modules\|\.git/'
+let g:ctrlp_custom_ignore = 'node_modules\|\.git/\|\.tox'
 let g:ctrlp_working_path_mode = 0
 
 "==============================================================================
