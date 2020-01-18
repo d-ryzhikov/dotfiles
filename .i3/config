@@ -151,13 +151,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id compton
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle"
-
 # lock screen
-bindsym $mod+Shift+x exec sudo lock-screen-service
+bindsym $mod+Shift+x exec xsecurelock
 
 # switch next/prev workspace
 bindsym $mod+control+Left workspace prev
@@ -176,10 +171,17 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# wallpaper
-exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
-
 # screenshot
 bindsym Print exec maim | xclip -selection clipboard -t image/png
 bindsym $mod+Print exec maim -i $(xdotool getwindowfocus) | xclip -selection clipboard -t image/png
 bindsym --release shift+Print exec maim -s | xclip -selection clipboard -t image/png
+
+# wallpaper
+exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
+
+# autostart
+exec_always --no-startup-id compton
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle"
+exec_always --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
