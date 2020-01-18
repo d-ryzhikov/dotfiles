@@ -178,10 +178,3 @@ bindsym --release shift+Print exec maim -s | xclip -selection clipboard -t image
 
 # wallpaper
 exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
-
-# autostart
-exec_always --no-startup-id compton
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle"
-exec_always --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
