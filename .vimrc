@@ -300,7 +300,7 @@ hi SpecialKey ctermfg=7 guifg=gray
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 set mouse=a
-set wrap
+set nowrap
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
