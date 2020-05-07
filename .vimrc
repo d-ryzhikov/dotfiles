@@ -116,11 +116,19 @@ let g:python_host_prog = '/home/dmitry/.pyenv/versions/nvim2/bin/python'
 let g:python3_host_prog = '/home/dmitry/.pyenv/versions/nvim3/bin/python'
 let g:node_host_prog = '/home/dmitry/.nvm/versions/node/v10.16.3/bin/neovim-node-host'
 
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 100
-let g:deoplete#auto_refresh_delay = 30
+call deoplete#custom#option({
+\ 'enable_at_startup': 1,
+\ 'auto_complete_delay': 100,
+\ 'auto_refresh_delay': 30,
+\ 'ignore_sources': {'php': 'omni'},
+\ })
+
+call deoplete#custom#option({
+\ 'keyword_patterns': {
+\   'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*',
+\ }
+\ })
 
 " autoclose preview window after completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -143,8 +151,6 @@ let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
 " php
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
 
 call deoplete#initialize()
 
