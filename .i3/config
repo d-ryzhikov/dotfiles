@@ -177,4 +177,6 @@ bindsym $mod+Print exec maim -i $(xdotool getwindowfocus) | xclip -selection cli
 bindsym --release shift+Print exec maim -s | xclip -selection clipboard -t image/png
 
 # wallpaper
-exec_always feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
+# exec_always --no-startup-id feh --bg-scale /home/dmitry/Pictures/wallpapers/wallpaper.png
+exec_always --no-startup-id dunst
+exec_always --no-startup-id ~/.config/polybar/launch.sh
